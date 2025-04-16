@@ -1,0 +1,372 @@
+{
+  "general": {
+    "siteTitle": "United Farms",
+    "loading": "Loading...",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "backToHome": "Back to home"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marketplace",
+    "produce": "Produce",
+    "orders": "Orders",
+    "dailyMandi": "Daily Mandi",
+    "login": "Login",
+    "register": "Register"
+  },
+  "home": {
+    "hero": {
+      "title": "Connect Farmers and Vendors for Bulk Produce",
+      "subtitle": "United Farms is a digital marketplace that connects farmers directly with vendors for bulk transactions of fresh produce at fair prices.",
+      "registerButton": "Get Started",
+      "loginButton": "Sign In",
+      "imageAlt": "Farmers harvesting vegetables"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Our platform makes bulk produce trading simple, transparent, and fair for both farmers and vendors.",
+      "farmers": {
+        "title": "For Farmers",
+        "description": "List your produce and set your own prices. Get direct access to bulk buyers.",
+        "point1": "Register and verify your farming license",
+        "point2": "List your produce with prices and available quantities",
+        "point3": "Respond to offers and complete transactions"
+      },
+      "marketplace": {
+        "title": "Transparent Marketplace",
+        "description": "A central hub where pricing is transparent and negotiations are smooth.",
+        "point1": "Daily updated price listings",
+        "point2": "Historical price trends for informed decisions",
+        "point3": "Secure transaction process with fair commission"
+      },
+      "vendors": {
+        "title": "For Vendors",
+        "description": "Source quality produce in bulk directly from farmers with transparent pricing.",
+        "point1": "Browse produce listings with detailed information",
+        "point2": "Place bulk orders with price negotiation",
+        "point3": "Build relationships with reliable farmers"
+      }
+    },
+    "features": {
+      "title": "Key Features",
+      "dailyPrice": {
+        "title": "Daily Price Updates",
+        "description": "Farmers update their produce prices daily, ensuring you always have the latest market rates."
+      },
+      "priceHistory": {
+        "title": "Price Trend Analytics",
+        "description": "View historical price data with visual charts to make informed buying and selling decisions."
+      },
+      "bulkOrders": {
+        "title": "Bulk Order System",
+        "description": "Place and manage large orders efficiently with minimum quantity requirements of 200kg+."
+      },
+      "negotiations": {
+        "title": "Price Negotiation",
+        "description": "Negotiate prices directly on the platform with up to three rounds of counter-offers."
+      },
+      "reviews": {
+        "title": "Rating System",
+        "description": "Build trust through our two-way rating system between farmers and vendors."
+      },
+      "security": {
+        "title": "Secure Transactions",
+        "description": "Our platform ensures privacy and security with just a 5% commission on completed orders."
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "subtitle": "Hear from the farmers and vendors who use our platform daily.",
+      "farmer1": {
+        "quote": "United Farms has transformed my business. I now sell directly to multiple vendors and get fair prices for my produce.",
+        "name": "Rajesh Patel",
+        "role": "Vegetable Farmer"
+      },
+      "vendor1": {
+        "quote": "The platform helps me source quality produce at competitive prices. The price negotiation feature is especially useful.",
+        "name": "Priya Sharma",
+        "role": "Restaurant Chain Owner"
+      },
+      "farmer2": {
+        "quote": "I love the price trend analytics. It helps me decide when to plant certain crops for maximum profitability.",
+        "name": "Sanjay Verma",
+        "role": "Fruit Grower"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Agri-Business?",
+      "subtitle": "Join thousands of farmers and vendors who are already benefiting from our platform.",
+      "registerButton": "Register Now",
+      "loginButton": "Log In"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "welcomeToUnited": "Welcome to United Farms",
+    "platformDesc": "Connect with farmers and vendors for bulk produce transactions",
+    "accountAccess": "Access Your Account",
+    "loginSubtitle": "Sign in to access your dashboard",
+    "createAccount": "Create Your Account",
+    "registerSubtitle": "Join our platform as a farmer or vendor",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "userType": "Account Type",
+    "selectUserType": "Select your account type",
+    "farmer": "Farmer",
+    "vendor": "Vendor",
+    "farmingLicense": "Farming License",
+    "uploadLicense": "Upload License",
+    "licenseUploaded": "License Uploaded",
+    "licenseNote": "License verification is required for farmer accounts",
+    "loggingIn": "Logging in...",
+    "registering": "Registering...",
+    "loginSuccess": "Login Successful",
+    "welcomeBack": "Welcome back, {{name}}!",
+    "loginError": "Login Failed",
+    "invalidCredentials": "Invalid username or password",
+    "registerSuccess": "Registration Successful",
+    "accountCreated": "Your account has been created successfully",
+    "accountPendingVerification": "Your account has been created but requires verification. Please wait for approval.",
+    "registerError": "Registration Failed",
+    "registrationFailed": "Unable to create your account",
+    "uploadSuccess": "Upload Successful",
+    "licenseUploaded": "Your license has been uploaded successfully",
+    "uploadError": "Upload Failed",
+    "licenseUploadFailed": "Failed to upload your license",
+    "licenseMissing": "Please upload your farming license",
+    "logoutSuccess": "Logout Successful",
+    "logoutSuccessMessage": "You have been logged out successfully",
+    "logoutError": "Logout Failed",
+    "logoutErrorMessage": "Failed to log you out",
+    "error": "Error",
+    "demoCredentials": "Demo Credentials",
+    "verification": "Verification"
+  },
+  "user": {
+    "profile": "Your Profile",
+    "settings": "Settings",
+    "signOut": "Sign Out"
+  },
+  "farmer": {
+    "dashboard": "Farmer Dashboard",
+    "welcomeBack": "Welcome back! Manage your produce, view orders, and track your performance."
+  },
+  "vendor": {
+    "dashboard": "Vendor Dashboard",
+    "welcomeBack": "Welcome back! Browse produce listings, place orders, and track your purchases.",
+    "browseMarketplace": "Browse Marketplace",
+    "recentlyViewed": "Recently Viewed Products",
+    "noRecentItems": "No recently viewed items"
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "activeListings": "Active Listings",
+    "pendingOrders": "Pending Orders",
+    "revenueMTD": "Revenue (MTD)",
+    "spendingMTD": "Spending (MTD)",
+    "farmerRating": "Farmer Rating",
+    "vendorRating": "Vendor Rating",
+    "activeOrders": "Active Orders",
+    "dailyMandiTrends": "Daily Mandi Trends"
+  },
+  "produce": {
+    "yourListings": "Your Produce Listings",
+    "manage": "Manage Produce",
+    "manageDesc": "Add, edit, and update your produce listings and prices",
+    "addNew": "Add New Produce",
+    "noListings": "You don't have any produce listings yet",
+    "noMatchingListings": "No matching produce listings found",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "currentPrice": "Current Price",
+    "minOrder": "Min. Order",
+    "availableQuantity": "Available Quantity",
+    "available": "available",
+    "total": "total",
+    "updatePrice": "Update Price",
+    "updatePriceDesc": "Update the price of your produce listing",
+    "newPrice": "New Price",
+    "priceUpdated": "Price Updated",
+    "priceUpdateSuccess": "Your produce price has been updated successfully",
+    "updateFailed": "Update Failed",
+    "updateError": "Failed to update your produce price",
+    "selectCategory": "Select Category",
+    "allCategories": "All Categories",
+    "vegetables": "Vegetables",
+    "fruits": "Fruits",
+    "grains": "Grains",
+    "others": "Others"
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "subtitle": "Browse available produce from verified farmers",
+    "pricePerKg": "Price/kg",
+    "minOrder": "Min Order",
+    "available": "Available",
+    "by": "By",
+    "selectCategory": "Category",
+    "allCategories": "All Categories",
+    "vegetables": "Vegetables",
+    "fruits": "Fruits",
+    "grains": "Grains",
+    "priceRange": "Price Range",
+    "minQuantity": "Minimum Quantity",
+    "filterDescription": "Filter produce listings by price range and minimum quantity",
+    "noResults": "No produce listings match your criteria"
+  },
+  "order": {
+    "pendingOrders": "Pending Orders",
+    "manageOrders": "Manage Orders",
+    "manageOrdersDesc": "View and respond to order requests from vendors",
+    "manageOrdersVendorDesc": "View your orders and track their status",
+    "recentOrders": "Recent Orders",
+    "noOrders": "You don't have any orders yet",
+    "noPendingOrders": "You don't have any pending orders",
+    "noAcceptedOrders": "You don't have any accepted orders",
+    "noCompletedOrders": "You don't have any completed orders",
+    "noRejectedOrders": "You don't have any rejected orders",
+    "noMatchingOrders": "No matching orders found",
+    "yourPrice": "Your price",
+    "offer": "Offer",
+    "totalValue": "Total value",
+    "vendor": "Vendor",
+    "farmer": "Farmer",
+    "ordered": "Ordered",
+    "total": "Total",
+    "commission": "Commission (5%)",
+    "placeOrder": "Place Order",
+    "placeOrderDesc": "Specify the quantity and proceed to negotiation",
+    "quantity": "Quantity",
+    "minQuantity": "Min",
+    "maxQuantity": "Max",
+    "continueToNegotiation": "Continue to Negotiation",
+    "createFailed": "Order Creation Failed",
+    "createError": "Failed to create your order",
+    "accepted": "Order Accepted",
+    "acceptSuccess": "You have successfully accepted the order",
+    "rejected": "Order Rejected",
+    "rejectSuccess": "You have rejected the order",
+    "actionFailed": "Action Failed",
+    "actionError": "Failed to perform the action on the order",
+    "pending": "Pending",
+    "active": "Active",
+    "completed": "Completed",
+    "status": {
+      "negotiation": "Negotiation",
+      "accepted": "Accepted",
+      "rejected": "Rejected",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "negotiate": {
+    "makeOffer": "Make an Offer",
+    "makeCounterOffer": "Make Counter Offer",
+    "offerDesc": "Propose your price for this order",
+    "counterOfferDesc": "Respond with a counter offer",
+    "currentPrice": "Current Price",
+    "quantity": "Quantity",
+    "yourOfferPerKg": "Your Offer (per kg)",
+    "totalOrderValue": "Total Order Value",
+    "message": "Message",
+    "messagePlaceholder": "Add a brief message explaining your offer",
+    "offerSent": "Offer Sent",
+    "offerSentMessage": "Your offer has been sent successfully",
+    "offerFailed": "Offer Failed",
+    "offerError": "Failed to send your offer"
+  },
+  "review": {
+    "leaveReviewFor": "Leave a review for",
+    "rating": "Rating",
+    "comment": "Comment",
+    "commentPlaceholder": "Share your experience with this transaction",
+    "submitted": "Review Submitted",
+    "submittedMessage": "Your review has been submitted successfully",
+    "failed": "Review Failed",
+    "errorMessage": "Failed to submit your review",
+    "success": "Review Submitted",
+    "successMessage": "Thank you for your feedback"
+  },
+  "chart": {
+    "tomatoPriceTrend": "Tomato Price Trend",
+    "potatoPriceTrend": "Potato Price Trend",
+    "priceTrend": "Price Trend",
+    "fromLastWeek": "from last week",
+    "marketAverage": "Market Average (₹/kg)",
+    "yourPrice": "Your Price (₹/kg)",
+    "currentMarketAvg": "Current Market Avg"
+  },
+  "dailyMandi": {
+    "title": "Daily Mandi Trends",
+    "subtitle": "Track historical price trends for all produce",
+    "selectTimeRange": "Select Time Range",
+    "last7Days": "Last 7 Days",
+    "last30Days": "Last 30 Days",
+    "last90Days": "Last 90 Days",
+    "marketOverview": "Market Overview",
+    "totalProduce": "Total Produce",
+    "avgPriceChange": "Avg. Price Change",
+    "mostIncreased": "Most Increased",
+    "mostDecreased": "Most Decreased",
+    "charts": "Charts",
+    "table": "Table",
+    "produceName": "Produce Name",
+    "category": "Category",
+    "currentPrice": "Current Price",
+    "priceChange": "Price Change",
+    "lowestPrice": "Lowest Price",
+    "highestPrice": "Highest Price",
+    "noResults": "No price data available for your criteria"
+  },
+  "actions": {
+    "edit": "Edit",
+    "updatePrice": "Update Price",
+    "viewAll": "View All",
+    "viewAllOrders": "View All Orders",
+    "viewAllTrends": "View All Trends",
+    "search": "Search...",
+    "searchOrders": "Search orders...",
+    "sortBy": "Sort By",
+    "sortNewest": "Newest",
+    "sortPriceHigh": "Price: High to Low",
+    "sortPriceLow": "Price: Low to High",
+    "sortName": "Name",
+    "sortQuantity": "Available Quantity",
+    "filter": "Filter",
+    "clearFilters": "Clear Filters",
+    "applyFilters": "Apply Filters",
+    "advancedFilters": "Advanced Filters",
+    "cancel": "Cancel",
+    "view": "View",
+    "viewDetails": "View Details",
+    "order": "Order",
+    "negotiate": "Negotiate",
+    "reject": "Reject",
+    "counterOffer": "Counter Offer",
+    "accept": "Accept",
+    "submitting": "Submitting...",
+    "submitOffer": "Submit Offer",
+    "submitReview": "Submit Review"
+  },
+  "footer": {
+    "about": "About",
+    "helpCenter": "Help Center",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "allRightsReserved": "All rights reserved"
+  }
+}
