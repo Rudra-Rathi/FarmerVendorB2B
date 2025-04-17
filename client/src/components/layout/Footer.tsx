@@ -27,9 +27,9 @@ const Footer = () => {
           {footerLinks.map((link, index) => (
             <div key={index} className="px-5 py-2">
               <Link href={link.href}>
-                <a className="text-base text-gray-500 hover:text-gray-900">
+                <div className="text-base text-gray-500 hover:text-gray-900 cursor-pointer">
                   {link.label}
-                </a>
+                </div>
               </Link>
             </div>
           ))}

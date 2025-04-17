@@ -48,13 +48,13 @@ const VendorMarketplace = () => {
   const vendorId = userData.id;
 
   // Fetch all active produce
-  const { data: produce, isLoading } = useQuery({
+  const { data: produce = [], isLoading } = useQuery<any[]>({
     queryKey: ['/api/produce'],
   });
 
   // Filter and sort produce
   const filteredProduce = produce
-    ? produce.filter(item => {
+    ? produce.filter((item: any) => {
         const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = category === "all" || item.category.toLowerCase() === category.toLowerCase();
         const matchesPrice = item.pricePerKg >= priceRange[0] && item.pricePerKg <= priceRange[1];
@@ -81,7 +81,7 @@ const VendorMarketplace = () => {
   };
 
   const handleInitiateOrder = (id: number) => {
-    const produceItem = produce?.find(p => p.id === id);
+    const produceItem = produce?.find((p: any) => p.id === id);
     if (produceItem) {
       setSelectedProduce(produceItem);
       setOrderQuantity(produceItem.minOrderQuantity);

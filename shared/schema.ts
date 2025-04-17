@@ -120,6 +120,10 @@ export const insertOrderSchema = createInsertSchema(orders).omit({
   createdAt: true,
   updatedAt: true,
   commissionAmount: true,
+}).partial({
+  farmerId: true,
+  pricePerKg: true,
+  totalAmount: true
 });
 
 export const insertNegotiationSchema = createInsertSchema(negotiations).omit({
