@@ -36,12 +36,20 @@ interface NegotiationDialogProps {
 }
 
 const negotiationSchema = z.object({
-  offeredPrice: z.coerce.number().positive().min(0.5, {
-    message: "Price must be at least ₹0.50",
-  }),
-  message: z.string().min(5, {
-    message: "Please provide a brief message",
-  }),
+  offeredPrice: z.coerce.number()
+    .positive({ message: "Price must be positive" })
+    .min(0.5, { message: "Price must be at least ₹0.50" })
+    .refine(
+      (price) => !isNaN(price), 
+      { message: "Please enter a valid number" }
+    ),
+  message: z.string()
+    .min(5, { message: "Please provide a brief message" })
+    .max(300, { message: "Message is too long (maximum 300 characters)" })
+    .refine(
+      (msg) => !/^\s+$/.test(msg), 
+      { message: "Message cannot contain only whitespace" }
+    ),
 });
 
 const NegotiationDialog = ({

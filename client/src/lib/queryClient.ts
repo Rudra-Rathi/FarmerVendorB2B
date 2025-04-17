@@ -2,8 +2,34 @@ import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
-    const text = (await res.text()) || res.statusText;
-    throw new Error(`${res.status}: ${text}`);
+    let errorMessage;
+    try {
+      // Try to parse error as JSON
+      const errorData = await res.json();
+      errorMessage = errorData.message || errorData.error || JSON.stringify(errorData);
+    } catch (e) {
+      // If not JSON, get text
+      try {
+        errorMessage = await res.text();
+      } catch (e2) {
+        errorMessage = res.statusText;
+      }
+    }
+    
+    // Create user-friendly error message
+    if (res.status === 401) {
+      throw new Error("You are not authorized. Please log in again.");
+    } else if (res.status === 403) {
+      throw new Error("You don't have permission to perform this action.");
+    } else if (res.status === 404) {
+      throw new Error("The requested resource was not found.");
+    } else if (res.status === 400) {
+      throw new Error(`Invalid request: ${errorMessage}`);
+    } else if (res.status >= 500) {
+      throw new Error("Server error. Please try again later.");
+    } else {
+      throw new Error(`${res.status}: ${errorMessage}`);
+    }
   }
 }
 

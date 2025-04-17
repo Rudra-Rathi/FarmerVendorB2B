@@ -72,7 +72,7 @@ const FarmerOrders = () => {
           status: action === 'accept' ? 'accepted' : 'rejected'
         });
         
-        refetch();
+        await refetch();
         
         toast({
           title: action === 'accept' ? t('order.accepted') : t('order.rejected'),
@@ -81,18 +81,23 @@ const FarmerOrders = () => {
       } else if (action === 'counter') {
         // Get order details for counter offer
         const order = orders?.find(o => o.id === orderId);
-        if (order) {
-          const orderProduce = produce?.find(p => p.id === order.produceId);
-          if (orderProduce) {
-            setSelectedOrder({
-              ...order,
-              produceName: orderProduce.name
-            });
-            setCounterOfferDialogOpen(true);
-          }
+        if (!order) {
+          throw new Error("Order not found");
         }
+        
+        const orderProduce = produce?.find(p => p.id === order.produceId);
+        if (!orderProduce) {
+          throw new Error("Product information not found");
+        }
+        
+        setSelectedOrder({
+          ...order,
+          produceName: orderProduce.name
+        });
+        setCounterOfferDialogOpen(true);
       }
     } catch (error: any) {
+      console.error("Order action error:", error);
       toast({
         title: t('order.actionFailed'),
         description: error.message || t('order.actionError'),
@@ -102,23 +107,34 @@ const FarmerOrders = () => {
   };
 
   const handleCounterOffer = async (data: { offeredPrice: number; message: string }) => {
-    if (!selectedOrder) return;
+    if (!selectedOrder) {
+      toast({
+        title: t('negotiate.offerFailed'),
+        description: "No order selected for counter offer",
+        variant: "destructive",
+      });
+      return;
+    }
     
     try {
+      // Include farmerId to ensure proper attribution
       await apiRequest("POST", "/api/negotiations", {
         orderId: selectedOrder.id,
+        farmerId: farmerId,
         offeredPrice: data.offeredPrice,
         message: data.message,
-        status: "countered"
+        status: "countered",
+        round: 1 // Default to round 1 if not present
       });
       
-      refetch();
+      await refetch();
       
       toast({
         title: t('negotiate.offerSent'),
         description: t('negotiate.offerSentMessage'),
       });
     } catch (error: any) {
+      console.error("Counter offer error:", error);
       toast({
         title: t('negotiate.offerFailed'),
         description: error.message || t('negotiate.offerError'),
