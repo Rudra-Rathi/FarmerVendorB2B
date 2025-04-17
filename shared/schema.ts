@@ -129,6 +129,10 @@ export const insertOrderSchema = createInsertSchema(orders).omit({
 export const insertNegotiationSchema = createInsertSchema(negotiations).omit({
   id: true,
   createdAt: true,
+}).partial({
+  vendorId: true,
+  farmerId: true,
+  round: true
 });
 
 export const insertReviewSchema = createInsertSchema(reviews).omit({

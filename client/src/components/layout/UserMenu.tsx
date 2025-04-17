@@ -68,12 +68,12 @@ const UserMenu = () => {
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem>
             <Link href="/profile">
-              <a className="w-full">{t('user.profile')}</a>
+              <div className="w-full cursor-pointer">{t('user.profile')}</div>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href="/settings">
-              <a className="w-full">{t('user.settings')}</a>
+              <div className="w-full cursor-pointer">{t('user.settings')}</div>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />

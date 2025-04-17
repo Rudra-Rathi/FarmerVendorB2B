@@ -181,6 +181,9 @@ const Header = () => {
                   className="w-full text-left block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                   onClick={() => {
                     localStorage.removeItem("user");
+                    // Use React Router navigation instead of direct window location change
+                    setMobileMenuOpen(false);
+                    // Navigate to home page
                     window.location.href = "/";
                   }}
                 >

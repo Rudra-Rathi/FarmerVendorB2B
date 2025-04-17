@@ -128,7 +128,9 @@ const VendorMarketplace = () => {
       await apiRequest("POST", "/api/negotiations", {
         orderId: selectedProduce.orderId,
         offeredPrice: data.offeredPrice,
-        message: data.message
+        message: data.message,
+        vendorId: userData.id,
+        farmerId: selectedProduce.farmerId
       });
       
       // Invalidate orders query to refresh data
@@ -159,8 +161,12 @@ const VendorMarketplace = () => {
   };
 
   // Find min and max prices for the slider
-  const minPrice = produce ? Math.min(...produce.map(item => item.pricePerKg)) : 0;
-  const maxPrice = produce ? Math.max(...produce.map(item => item.pricePerKg)) : 100;
+  const minPrice = produce && produce.length > 0 
+    ? Math.min(...produce.map((item: any) => item.pricePerKg)) 
+    : 0;
+  const maxPrice = produce && produce.length > 0 
+    ? Math.max(...produce.map((item: any) => item.pricePerKg)) 
+    : 100;
 
   return (
     <div className="flex flex-col min-h-screen">
