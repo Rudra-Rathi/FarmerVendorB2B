@@ -69,18 +69,20 @@ const Header = () => {
             </div>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <a
-                    className={cn(
-                      "inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
-                      location === item.href
-                        ? "border-primary text-primary"
-                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                </Link>
+                <div key={item.href} className="relative">
+                  <Link href={item.href}>
+                    <div
+                      className={cn(
+                        "inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium cursor-pointer",
+                        location === item.href
+                          ? "border-primary text-primary"
+                          : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      )}
+                    >
+                      {item.label}
+                    </div>
+                  </Link>
+                </div>
               ))}
             </nav>
           </div>
@@ -128,19 +130,21 @@ const Header = () => {
         <div className="md:hidden">
           <div className="pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className={cn(
-                    "block pl-3 pr-4 py-2 border-l-4 text-base font-medium",
-                    location === item.href
-                      ? "bg-primary-light border-primary text-white"
-                      : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
-                  )}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </Link>
+              <div key={item.href}>
+                <Link href={item.href}>
+                  <div
+                    className={cn(
+                      "block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer",
+                      location === item.href
+                        ? "bg-primary-light border-primary text-white"
+                        : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                    )}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
           {isLoggedIn && (
@@ -164,14 +168,14 @@ const Header = () => {
               </div>
               <div className="mt-3 space-y-1">
                 <Link href="/profile">
-                  <a className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+                  <div className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
                     {t('user.profile')}
-                  </a>
+                  </div>
                 </Link>
                 <Link href="/settings">
-                  <a className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+                  <div className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
                     {t('user.settings')}
-                  </a>
+                  </div>
                 </Link>
                 <button
                   className="w-full text-left block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"

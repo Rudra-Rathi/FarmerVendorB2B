@@ -98,6 +98,7 @@ const VendorMarketplace = () => {
         produceId: selectedProduce.id,
         vendorId,
         quantity: orderQuantity,
+        status: "negotiation"
       });
       
       const orderData = await orderResponse.json();
