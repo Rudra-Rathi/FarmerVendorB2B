@@ -5,6 +5,8 @@ import {
   type Negotiation, type InsertNegotiation, type Review, type InsertReview,
   orderStatuses, negotiationStatuses
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -455,4 +457,152 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Export DatabaseStorage to replace MemStorage
+export class DatabaseStorage implements IStorage {
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async updateUserVerification(id: number, isVerified: boolean): Promise<User | undefined> {
+    const [updatedUser] = await db
+      .update(users)
+      .set({ isVerified })
+      .where(eq(users.id, id))
+      .returning();
+    return updatedUser || undefined;
+  }
+  
+  async getProduce(id: number): Promise<Produce | undefined> {
+    const [produceItem] = await db.select().from(produce).where(eq(produce.id, id));
+    return produceItem || undefined;
+  }
+  
+  async getProduceByFarmerId(farmerId: number): Promise<Produce[]> {
+    return await db.select().from(produce).where(eq(produce.farmerId, farmerId));
+  }
+  
+  async getAllActiveProduce(): Promise<Produce[]> {
+    return await db.select().from(produce).where(eq(produce.isActive, true));
+  }
+  
+  async createProduce(insertProduce: InsertProduce): Promise<Produce> {
+    const [produceItem] = await db
+      .insert(produce)
+      .values(insertProduce)
+      .returning();
+    return produceItem;
+  }
+  
+  async updateProduce(id: number, updatedFields: Partial<Produce>): Promise<Produce | undefined> {
+    const [updatedProduce] = await db
+      .update(produce)
+      .set(updatedFields)
+      .where(eq(produce.id, id))
+      .returning();
+    return updatedProduce || undefined;
+  }
+  
+  async getPriceHistoryByProduceId(produceId: number): Promise<PriceHistory[]> {
+    return await db
+      .select()
+      .from(priceHistory)
+      .where(eq(priceHistory.produceId, produceId))
+      .orderBy(desc(priceHistory.createdAt));
+  }
+  
+  async createPriceHistory(insertPriceHistory: InsertPriceHistory): Promise<PriceHistory> {
+    const [priceHistoryItem] = await db
+      .insert(priceHistory)
+      .values(insertPriceHistory)
+      .returning();
+    return priceHistoryItem;
+  }
+  
+  async getOrder(id: number): Promise<Order | undefined> {
+    const [order] = await db.select().from(orders).where(eq(orders.id, id));
+    return order || undefined;
+  }
+  
+  async getOrdersByFarmerId(farmerId: number): Promise<Order[]> {
+    return await db.select().from(orders).where(eq(orders.farmerId, farmerId));
+  }
+  
+  async getOrdersByVendorId(vendorId: number): Promise<Order[]> {
+    return await db.select().from(orders).where(eq(orders.vendorId, vendorId));
+  }
+  
+  async createOrder(insertOrder: InsertOrder): Promise<Order> {
+    const [order] = await db
+      .insert(orders)
+      .values(insertOrder)
+      .returning();
+    return order;
+  }
+  
+  async updateOrderStatus(id: number, status: string): Promise<Order | undefined> {
+    const [updatedOrder] = await db
+      .update(orders)
+      .set({ status })
+      .where(eq(orders.id, id))
+      .returning();
+    return updatedOrder || undefined;
+  }
+  
+  async getNegotiationsByOrderId(orderId: number): Promise<Negotiation[]> {
+    return await db
+      .select()
+      .from(negotiations)
+      .where(eq(negotiations.orderId, orderId))
+      .orderBy(desc(negotiations.createdAt));
+  }
+  
+  async createNegotiation(insertNegotiation: InsertNegotiation): Promise<Negotiation> {
+    const [negotiation] = await db
+      .insert(negotiations)
+      .values(insertNegotiation)
+      .returning();
+    return negotiation;
+  }
+  
+  async updateNegotiationStatus(id: number, status: string): Promise<Negotiation | undefined> {
+    const [updatedNegotiation] = await db
+      .update(negotiations)
+      .set({ status })
+      .where(eq(negotiations.id, id))
+      .returning();
+    return updatedNegotiation || undefined;
+  }
+  
+  async getReviewsByOrderId(orderId: number): Promise<Review[]> {
+    return await db.select().from(reviews).where(eq(reviews.orderId, orderId));
+  }
+  
+  async getReviewsByRevieweeId(revieweeId: number): Promise<Review[]> {
+    return await db.select().from(reviews).where(eq(reviews.revieweeId, revieweeId));
+  }
+  
+  async createReview(insertReview: InsertReview): Promise<Review> {
+    const [review] = await db
+      .insert(reviews)
+      .values(insertReview)
+      .returning();
+    return review;
+  }
+}
+
+// Use DatabaseStorage instead of MemStorage
+export const storage = new DatabaseStorage();
