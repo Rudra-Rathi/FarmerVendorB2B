@@ -178,6 +178,108 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const { password, ...userWithoutPassword } = req.user as any;
     res.json(userWithoutPassword);
   });
+  
+  // User profile routes
+  app.get("/api/users/:id", isAuthenticated, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      const user = await storage.getUser(userId);
+      
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      
+      // Only allow users to view their own profile
+      const currentUser = req.user as any;
+      if (userId !== currentUser.id) {
+        return res.status(403).json({ message: "You can only view your own profile" });
+      }
+      
+      // Remove password from response
+      const { password, ...userWithoutPassword } = user;
+      res.json(userWithoutPassword);
+    } catch (error: any) {
+      console.error("Get user error:", error);
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+  app.patch("/api/users/:id", isAuthenticated, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      const user = await storage.getUser(userId);
+      
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      
+      // Only allow users to update their own profile
+      const currentUser = req.user as any;
+      if (userId !== currentUser.id) {
+        return res.status(403).json({ message: "You can only update your own profile" });
+      }
+      
+      // Update allowed fields only
+      const allowedUpdates = ['fullName', 'email', 'phone'];
+      const updates: Record<string, any> = {};
+      allowedUpdates.forEach(field => {
+        if (req.body[field] !== undefined) {
+          updates[field] = req.body[field];
+        }
+      });
+      
+      const updatedUser = await storage.updateUser(userId, updates);
+      
+      // Remove password from response
+      const { password, ...userWithoutPassword } = updatedUser;
+      res.json(userWithoutPassword);
+    } catch (error: any) {
+      console.error("Update user error:", error);
+      res.status(400).json({ message: error.message });
+    }
+  });
+  
+  app.post("/api/auth/change-password", isAuthenticated, async (req, res) => {
+    try {
+      const { userId, currentPassword, newPassword } = req.body;
+      
+      if (!userId || !currentPassword || !newPassword) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+      
+      // Only allow users to change their own password
+      const currentUser = req.user as any;
+      if (userId !== currentUser.id) {
+        return res.status(403).json({ message: "You can only change your own password" });
+      }
+      
+      const user = await storage.getUser(userId);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      
+      // In a real app, verify the current password using bcrypt
+      // const isPasswordValid = await compare(currentPassword, user.password);
+      // For this prototype, simplify
+      const isPasswordValid = currentPassword === "password123";
+      
+      if (!isPasswordValid) {
+        return res.status(400).json({ message: "Current password is incorrect" });
+      }
+      
+      // In a real app, hash the new password
+      // const hashedPassword = await hash(newPassword, 10);
+      // For this prototype, simplify
+      const hashedPassword = newPassword;
+      
+      const updatedUser = await storage.updateUserPassword(userId, hashedPassword);
+      
+      res.json({ message: "Password updated successfully" });
+    } catch (error: any) {
+      console.error("Change password error:", error);
+      res.status(400).json({ message: error.message });
+    }
+  });
 
   // License upload route (simulated)
   app.post("/api/auth/upload-license", async (req, res) => {

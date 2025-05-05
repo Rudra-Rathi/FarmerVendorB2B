@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import HomePage from "@/pages/home";
 import LoginPage from "@/pages/auth/login";
 import RegisterPage from "@/pages/auth/register";
+import ProfilePage from "@/pages/profile";
 import NotFound from "@/pages/not-found";
 
 // Farmer pages
@@ -31,6 +32,7 @@ function Router() {
       {/* Auth Pages */}
       <Route path="/auth/login" component={LoginPage} />
       <Route path="/auth/register" component={RegisterPage} />
+      <Route path="/profile" component={ProfilePage} />
       
       {/* Farmer Pages */}
       <Route path="/farmer/dashboard" component={FarmerDashboard} />
