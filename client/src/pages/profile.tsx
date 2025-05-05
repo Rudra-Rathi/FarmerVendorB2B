@@ -71,7 +71,15 @@ const ProfilePage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Get user data from localStorage
-  const userData = JSON.parse(localStorage.getItem("user") || "{}");
+  const userData = JSON.parse(localStorage.getItem("user") || "{}") as {
+    id?: number;
+    fullName?: string;
+    email?: string;
+    phone?: string;
+    userType?: string;
+    isVerified?: boolean;
+  };
+  
   const userId = userData?.id;
 
   // Fetch user data

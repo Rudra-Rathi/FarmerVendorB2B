@@ -331,6 +331,29 @@
     "highestPrice": "Highest Price",
     "noResults": "No price data available for your criteria"
   },
+  "profile": {
+    "title": "Your Profile",
+    "subtitle": "View and update your account information",
+    "manageProfile": "Manage Profile",
+    "manageProfileDesc": "Manage your personal information and account security",
+    "personalInfo": "Personal Information",
+    "security": "Security",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updateSuccess": "Update Successful",
+    "profileUpdated": "Your profile has been updated successfully",
+    "updateFailed": "Update Failed",
+    "updateError": "Failed to update your profile",
+    "passwordChangeSuccess": "Password Changed",
+    "passwordChanged": "Your password has been changed successfully",
+    "passwordChangeFailed": "Password Change Failed",
+    "passwordChangeError": "Failed to change your password"
+  },
   "actions": {
     "edit": "Edit",
     "updatePrice": "Update Price",
@@ -359,7 +382,10 @@
     "accept": "Accept",
     "submitting": "Submitting...",
     "submitOffer": "Submit Offer",
-    "submitReview": "Submit Review"
+    "submitReview": "Submit Review",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "updatePassword": "Update Password"
   },
   "footer": {
     "about": "About",

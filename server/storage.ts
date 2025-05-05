@@ -14,6 +14,8 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   updateUserVerification(id: number, isVerified: boolean): Promise<User | undefined>;
+  updateUser(id: number, userData: Partial<User>): Promise<User>;
+  updateUserPassword(id: number, password: string): Promise<User>;
   
   // Produce methods
   getProduce(id: number): Promise<Produce | undefined>;
@@ -102,6 +104,28 @@ export class MemStorage implements IStorage {
     if (!user) return undefined;
     
     const updatedUser = { ...user, isVerified };
+    this.users.set(id, updatedUser);
+    return updatedUser;
+  }
+  
+  async updateUser(id: number, userData: Partial<User>): Promise<User> {
+    const user = this.users.get(id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    
+    const updatedUser = { ...user, ...userData };
+    this.users.set(id, updatedUser);
+    return updatedUser;
+  }
+  
+  async updateUserPassword(id: number, password: string): Promise<User> {
+    const user = this.users.get(id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    
+    const updatedUser = { ...user, password };
     this.users.set(id, updatedUser);
     return updatedUser;
   }
@@ -484,6 +508,34 @@ export class DatabaseStorage implements IStorage {
       .where(eq(users.id, id))
       .returning();
     return updatedUser || undefined;
+  }
+  
+  async updateUser(id: number, userData: Partial<User>): Promise<User> {
+    const [updatedUser] = await db
+      .update(users)
+      .set(userData)
+      .where(eq(users.id, id))
+      .returning();
+    
+    if (!updatedUser) {
+      throw new Error("User not found");
+    }
+    
+    return updatedUser;
+  }
+  
+  async updateUserPassword(id: number, password: string): Promise<User> {
+    const [updatedUser] = await db
+      .update(users)
+      .set({ password })
+      .where(eq(users.id, id))
+      .returning();
+    
+    if (!updatedUser) {
+      throw new Error("User not found");
+    }
+    
+    return updatedUser;
   }
   
   async getProduce(id: number): Promise<Produce | undefined> {
