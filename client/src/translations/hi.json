@@ -331,6 +331,29 @@
     "highestPrice": "अधिकतम मूल्य",
     "noResults": "आपके मानदंडों के लिए कोई मूल्य डेटा उपलब्ध नहीं है"
   },
+  "profile": {
+    "title": "आपका प्रोफाइल",
+    "subtitle": "अपनी खाता जानकारी देखें और अपडेट करें",
+    "manageProfile": "प्रोफ़ाइल प्रबंधित करें",
+    "manageProfileDesc": "अपनी व्यक्तिगत जानकारी और खाता सुरक्षा प्रबंधित करें",
+    "personalInfo": "व्यक्तिगत जानकारी",
+    "security": "सुरक्षा",
+    "fullName": "पूरा नाम",
+    "email": "ईमेल",
+    "phone": "फोन नंबर",
+    "changePassword": "पासवर्ड बदलें",
+    "currentPassword": "वर्तमान पासवर्ड",
+    "newPassword": "नया पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "updateSuccess": "अपडेट सफल",
+    "profileUpdated": "आपका प्रोफाइल सफलतापूर्वक अपडेट किया गया है",
+    "updateFailed": "अपडेट विफल",
+    "updateError": "आपका प्रोफाइल अपडेट करने में विफल",
+    "passwordChangeSuccess": "पासवर्ड बदला गया",
+    "passwordChanged": "आपका पासवर्ड सफलतापूर्वक बदल दिया गया है",
+    "passwordChangeFailed": "पासवर्ड परिवर्तन विफल",
+    "passwordChangeError": "आपका पासवर्ड बदलने में विफल"
+  },
   "actions": {
     "edit": "संपादित करें",
     "updatePrice": "मूल्य अपडेट करें",
@@ -359,7 +382,10 @@
     "accept": "स्वीकार",
     "submitting": "जमा किया जा रहा है...",
     "submitOffer": "ऑफर जमा करें",
-    "submitReview": "समीक्षा जमा करें"
+    "submitReview": "समीक्षा जमा करें",
+    "saveChanges": "परिवर्तन सहेजें",
+    "saving": "सहेज रहे हैं...",
+    "updatePassword": "पासवर्ड अपडेट करें"
   },
   "footer": {
     "about": "हमारे बारे में",

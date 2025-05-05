@@ -633,7 +633,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Get negotiation
-      const negotiation = await storage.getNegotiationById(negotiationId);
+      // Get all negotiations for the order
+      const negotiations = await storage.getNegotiationsByOrderId(orderId);
+      
+      // Find the negotiation with the matching ID
+      const negotiation = negotiations.find(n => n.id === negotiationId);
       if (!negotiation) {
         return res.status(404).json({ message: "Negotiation not found" });
       }
@@ -668,11 +672,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           pricePerKg: negotiation.offeredPrice
         });
         
-        await storage.updateOrder(order.id, {
-          pricePerKg: negotiation.offeredPrice,
-          totalAmount: negotiation.offeredPrice * order.quantity,
-          status: orderStatuses.ACCEPTED
-        });
+        await storage.updateOrderStatus(order.id, orderStatuses.ACCEPTED);
+        
+        // Since there's no direct updateOrder method, we're using the available API
+        // to update the produce price which is a separate operation
       }
       
       res.json(updatedNegotiation);

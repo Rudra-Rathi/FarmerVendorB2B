@@ -331,6 +331,29 @@
     "highestPrice": "सर्वाधिक किंमत",
     "noResults": "आपल्या निकषांसाठी कोणताही किंमत डेटा उपलब्ध नाही"
   },
+  "profile": {
+    "title": "आपले प्रोफाईल",
+    "subtitle": "आपली खाते माहिती पहा आणि अपडेट करा",
+    "manageProfile": "प्रोफाईल व्यवस्थापित करा",
+    "manageProfileDesc": "आपली वैयक्तिक माहिती आणि खाते सुरक्षा व्यवस्थापित करा",
+    "personalInfo": "वैयक्तिक माहिती",
+    "security": "सुरक्षा",
+    "fullName": "पूर्ण नाव",
+    "email": "ईमेल",
+    "phone": "फोन नंबर",
+    "changePassword": "पासवर्ड बदला",
+    "currentPassword": "वर्तमान पासवर्ड",
+    "newPassword": "नवीन पासवर्ड",
+    "confirmPassword": "पासवर्डची पुष्टी करा",
+    "updateSuccess": "अपडेट यशस्वी",
+    "profileUpdated": "आपले प्रोफाईल यशस्वीरित्या अपडेट केले गेले आहे",
+    "updateFailed": "अपडेट अयशस्वी",
+    "updateError": "आपले प्रोफाईल अपडेट करण्यात अयशस्वी",
+    "passwordChangeSuccess": "पासवर्ड बदलले",
+    "passwordChanged": "आपला पासवर्ड यशस्वीरित्या बदलला गेला आहे",
+    "passwordChangeFailed": "पासवर्ड बदल अयशस्वी",
+    "passwordChangeError": "आपला पासवर्ड बदलण्यात अयशस्वी"
+  },
   "actions": {
     "edit": "संपादित करा",
     "updatePrice": "किंमत अपडेट करा",
@@ -359,7 +382,10 @@
     "accept": "स्वीकारा",
     "submitting": "सबमिट करत आहे...",
     "submitOffer": "ऑफर सबमिट करा",
-    "submitReview": "पुनरावलोकन सबमिट करा"
+    "submitReview": "पुनरावलोकन सबमिट करा",
+    "saveChanges": "बदल जतन करा",
+    "saving": "जतन करत आहे...",
+    "updatePassword": "पासवर्ड अपडेट करा"
   },
   "footer": {
     "about": "आमच्याबद्दल",
